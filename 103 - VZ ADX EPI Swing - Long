@@ -1,0 +1,41 @@
+[type = stock] and
+[country = US] and
+[group is not ETF] and
+[[exchange = nyse] or [exchange = nasdaq]] and
+[Daily SMA(20, Volume) > 800000] and
+[close > 2]
+
+//Comment out this line if you want to scan all stocks
+//and [favorites list is 17] // Master Symbols
+
+//is the price in the value zone or within half an ATR of it
+and 
+[
+//if 13 is above the 26
+[todays close < ema(13, close) + [ATR(10) * .5]] and [todays close > ema(26, close) - [ATR(10) * .5]]
+or
+//if 26 is above the 13
+[todays close > ema(13, close) - [ATR(10) * .5]] and [todays close < ema(26, close) + [ATR(10) * .5]]
+]
+
+//look for a signal to buy from the stochastic and alignment of Weekly EPI and Weekly and Daily DMI
+and
+[
+    //Long candidate
+    [[Weekly Plus DI(13) > Weekly Minus DI(13)]
+    //check to make sure the ADX is going up
+    and [This Weeks ADX Line(13) > Last Weeks ADX Line(13)]
+    and [This Weeks ADX Line(13) < This Weeks Plus DI(13)]
+    and [This Weeks Elder Bar Red is False]
+    and [Todays Elder Bar Red is False]
+    ]
+or
+    //Short candidate
+    [[Weekly Minus DI(13) > Weekly Plus DI(13)]
+    //check to make sure the ADX is going up
+    and [This Weeks ADX Line(13) > Last Weeks ADX Line(13)]
+    and [This Weeks ADX Line(13) < This Weeks Minus DI(13)]
+    and [This Weeks Elder Bar Green is False]
+    and [Todays Elder Bar Green is False]
+    ]
+]
