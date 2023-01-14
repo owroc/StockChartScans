@@ -1,0 +1,58 @@
+[type = stock] and
+[country = US] and
+[group is not ETF] and
+[[exchange = nyse] or [exchange = nasdaq]] and
+[Daily SMA(50, Volume) > 800000] and
+
+//My list of stocks to scan
+[
+[favorites list is 24] // Automotive
+or [favorites list is 11] // 003 - The Generals
+or [favorites list is 15] // 011 - Previously Owned
+or [favorites list is 16] // 012 - Watch - My List
+or [favorites list is 17] // 014 - Watch - Market Guage
+or [favorites list is 5] // Agritech
+or [favorites list is 24] // Automotive
+or [favorites list is 23] // Brownstone Unlimited
+or [favorites list is 25] // Cannabis
+or [favorites list is 28] // Commodities
+or [favorites list is 47] // Construction
+or [favorites list is 45] // Dividend Stock
+or [favorites list is 32] // Early Stage Trader
+or [favorites list is 34] // Electric Vehicles
+or [favorites list is 7] // Energy
+or [favorites list is 35] // Fitness
+or [favorites list is 22] // KRE - Financial
+or [favorites list is 36] // Gaming
+or [favorites list is 31] // Green Funds
+or [favorites list is 8] // Guns
+or [favorites list is 44] // IBB - BioTech
+or [favorites list is 37] // IYT - Airlines
+or [favorites list is 38] // IYT - Transportation
+or [favorites list is 18] // Machine
+or [favorites list is 33] // Media
+or [favorites list is 39] // Meme Stocks
+or [favorites list is 30] // Options
+or [favorites list is 40] // Outlier Investor [favorites list is 29] // Realestate
+or [favorites list is 42] // SMH - Semi Conductors
+or [favorites list is 2] // Technology
+or [favorites list is 43] // XHB - Home Builders
+or [favorites list is 3] // XRT - Restaurants
+or [favorites list is 1] // XRT - Retail
+or [favorites list is 9] // Exponential Tech Investor
+]
+
+//Elder Impulse System is green
+and [this weeks ema(13, close) > last weeks ema(13, close)]
+and [this weeks MACD Hist (12,26,9) > last weeks MACD Hist (12,26,9)]
+
+//Price less than 1.8 ATRs above the 50 SMA
+and [todays close < sma(50, close) + [ATR(10) * 1.8]]
+and [todays close > sma(50, close)]
+and [todays close > yesterdays close]
+
+//Intraday this should provide and alert for an OR break out at 10am
+and [close >= last high]
+//and [close - high >= 0]
+//and [close - max(1, high) >= 0]
+//and [close > last max(6, High)]
