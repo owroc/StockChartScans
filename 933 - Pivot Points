@@ -1,9 +1,0 @@
-//Close below P
-and [todays close < [[yesterdays high + yesterdays low + yesterdays close] / 3]]
-
-//Close above R1
-and [todays close > [[[yesterdays high + yesterdays low + yesterdays close] / 3] * 2] - yesterdays low]
-
-
-//Close above R2
-and [todays close > [[yesterdays high + yesterdays low + yesterdays close] / 3] + yesterdays high - yesterdays low]
