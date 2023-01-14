@@ -18,24 +18,10 @@ or
 [todays close > ema(13, close) - [ATR(10) * .5]] and [todays close < ema(26, close) + [ATR(10) * .5]]
 ]
 
-//look for a signal to buy from the stochastic and alignment of Weekly EPI and Weekly and Daily DMI
-and
-[
-    //Long candidate
-    [[Weekly Plus DI(13) > Weekly Minus DI(13)]
-    //check to make sure the ADX is going up
-    and [This Weeks ADX Line(13) > Last Weeks ADX Line(13)]
-    and [This Weeks ADX Line(13) < This Weeks Plus DI(13)]
-    and [This Weeks Elder Bar Red is False]
-    and [Todays Elder Bar Red is False]
-    ]
-or
-    //Short candidate
-    [[Weekly Minus DI(13) > Weekly Plus DI(13)]
-    //check to make sure the ADX is going up
-    and [This Weeks ADX Line(13) > Last Weeks ADX Line(13)]
-    and [This Weeks ADX Line(13) < This Weeks Minus DI(13)]
-    and [This Weeks Elder Bar Green is False]
-    and [Todays Elder Bar Green is False]
-    ]
-]
+//Short candidate
+and [Weekly Minus DI(13) > Weekly Plus DI(13)]
+//check to make sure the ADX is going up
+and [This Weeks ADX Line(13) > Last Weeks ADX Line(13)]
+and [This Weeks ADX Line(13) < This Weeks Minus DI(13)]
+and [This Weeks Elder Bar Green is False]
+and [Todays Elder Bar Green is False]
