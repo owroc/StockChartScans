@@ -1,0 +1,6 @@
+[type = stock] and
+[country = US] and
+[group is not ETF] and
+[[exchange = nyse] or [exchange = nasdaq]] and
+[Daily SMA(20, Volume) > 800000] and
+[close > 2]

@@ -1,0 +1,3 @@
+//Set the price range above the 50 day SMA
+and [todays close < sma(50, close) + [ATR(10) * 1.8]]
+and [todays close > yesterdays close]

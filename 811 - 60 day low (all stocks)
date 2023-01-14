@@ -1,0 +1,27 @@
+[type = stock] and
+[country = US] and
+[group is not ETF] and
+[[exchange = nyse] or [exchange = nasdaq]] and
+[Daily SMA(50, Volume) > 300000]
+
+and [yesterdays low < 2 days ago min(60, Low)]
+and [todays close > yesterdays high]
+
+// the low should close in the top half of the daily range
+//and [close >= [high - [[high - low] * .5]]]
+
+//volume should be above average on the reversal
+and [volume > sma(50, volume)]
+
+//Elder Impulse System is blue
+and
+[
+   [
+        [this weeks ema(13, close) > last weeks ema(13, close)]
+    and [this weeks MACD Hist (12,26,9) < last weeks MACD Hist (12,26,9)]
+   ]
+    or
+   [   [this weeks ema(13, close) < last weeks ema(13, close)]
+   and [this weeks MACD Hist (12,26,9) > last weeks MACD Hist (12,26,9)]
+   ]
+]

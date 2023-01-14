@@ -1,0 +1,3 @@
+//Elder Impulse System is red
+and [this weeks ema(13, close) < last weeks ema(13, close)]
+and [this weeks MACD Hist (12,26,9) < last weeks MACD Hist (12,26,9)]

@@ -1,0 +1,16 @@
+[type = stock] and
+[country = US] and
+[group is not ETF] and
+[[exchange = nyse] or [exchange = nasdaq]] and
+[Daily SMA(50, Volume) > 300000]
+
+//Elder Impulse System is green
+and [this weeks ema(13, close) > last weeks ema(13, close)]
+and [this weeks MACD Hist (12,26,9) > last weeks MACD Hist (12,26,9)]
+
+//Set the price range above the 50 day SMA
+and [todays close < sma(50, close) + [ATR(10) * 1.8]]
+and [todays close > yesterdays close]
+
+//The Force Index is below 0
+//and [today's FORCE(2) < 0]
